@@ -310,15 +310,3 @@ export default defineConfig({
     }),
   ],
 })
-
-function configSchema() {
-  return {
-    name: "configSchema",
-    hooks: {
-      "astro:build:done": async () => {
-        console.log("generating config schema")
-        spawnSync("../opencode/script/schema.ts", ["./dist/config.json", "./dist/tui.json"])
-      },
-    },
-  }
-}
